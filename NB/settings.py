@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-femvd7^^6c5se^#$2_q9-7bs=l7*kx+5y)ltt+tj6voh4n2r7f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 STATICFILES_DIRS = [
     STATIC_DIR
