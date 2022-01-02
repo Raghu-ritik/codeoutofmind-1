@@ -1,0 +1,55 @@
+{% extends 'Home/navbar.html' %}
+{% block title %} Contact NB - For Everyone {% endblock %} 
+{% block cssd %} 
+{% load static %}
+{% static 'Home/contact.css' %} {% endblock %}
+{% block body %}
+<div style="position: relative; background-color: #50E3C2; min-height: 85vh;">
+    <div class="custom-shape-divider-top-1640884082">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <h1 class="text-center pt-3 text-primary">Contact us</h1>
+    <div class="conta">
+        <img src="static\images\tele_mail.png" alt="this is envelop" class="img-envl">
+        <div class="fom">
+            <form action="">
+                <div class="form-group row">
+                    <div class="col-sm-10 mb-2">
+                      <input type="text" class="form-control" id="name1" placeholder="Full Name">
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="email1" placeholder="Email Address">
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="contactno1" placeholder="Contact Number ">
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+                    <div class="col-sm-10">
+                        <textarea name="" id="feedba1"  class="form-control" placeholder="Your feedback"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+                    <div class="col-sm-10">
+                      <button type="submit" class="tele-btn">
+                        <img type="image" src="static\images\telegram_icon.png" class="tele-icon">
+                      </button>
+                    </div>
+                  </div>                                 
+            </form>
+        </div>
+    </div>
+    <div class="custom-shape-divider-bottom-1640884130">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</div>
+
+{% endblock%}

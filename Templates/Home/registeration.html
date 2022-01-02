@@ -1,0 +1,84 @@
+{% extends 'Home/navbar.html' %}
+
+{% block title %}  NB - For Everyone {% endblock %} 
+{% block cssd %} 
+{% load static %}
+{% static 'registration.css' %} {% endblock %}
+
+{% block jsd %} 
+{% load static %}
+{% static 'registration.js' %} {% endblock %}
+
+{% block body %}
+<div class="cont">
+    <div class="contain">
+        <form id="registration_form" method="post" action="/register">
+            {% csrf_token %}
+        <fieldset class="formreg" id="Form1">
+            <h3>Create Account</h3>
+            <div class="form-control1">
+                <input type="email" name="email" placeholder="Email" id="email" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="password" name="passwd1" placeholder="Password" id="password"/>
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="password" name="passwd2" placeholder="Confirm Password" id="password2"/>
+                <small>Error message</small>
+            </div>
+            <div class="btn-box">
+                <button type="button" id="Next1" class="btn_dire" >Next</button>
+            </div>
+        </fieldset>
+        <fieldset id="Form2" class="formreg">
+            <h3>Social Links</h3>
+            <div class="form-control1">
+                <input type="text" name="Medium" placeholder="Medium" id="Medium" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="text" name="github" placeholder="Github" id="github" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="text" name="linkedin" placeholder="Linkedin" id="linkedin" />
+                <small>Error message</small>
+            </div>
+            <div class="btn-box">
+                <button type="button" id="Back1" class="btn_dire">Back</button>
+                <button type="button" id="Next2" class="btn_dire">Next</button>
+            </div>
+        </fieldset>
+        <fieldset id="Form3" class="formreg" > 
+            <h3>Personal Info</h3>
+            <div class="form-control1">
+                <input type="text" name="Fname" placeholder="First Name" id="fname" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="text" name="Lname" placeholder="Last Name" id="Lastname" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control1">
+                <input type="text" name="mobno" placeholder="Mobile number" id="mobno" />
+                <small>Error message</small>
+            </div>
+        
+            <div class="btn-box">
+                <button type="button" id="Back2" class="btn_dire">Back</button>
+                <button type="button" class="btn_dire" id="Subm_btn" >Submit</button>
+            </div>
+        </fieldset>
+    </form>
+            <div class="step-row">
+                <div id="progess"></div>
+                    <div class="step-col"><small>Step1</small></div>
+                    <div class="step-col"><small>Step2</small></div>
+                    <div class="step-col"><small>Step3</small></div>
+            </div>
+        
+    </div>
+</div>
+{% endblock %}

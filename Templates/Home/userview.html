@@ -1,0 +1,169 @@
+{% extends 'Home/navbar.html' %}
+{% block title %}  NB projects - For Everyone {% endblock %} 
+{% block cssd %} 
+{% load static %}
+{% static 'login.css' %} {% endblock %}
+{% block body %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+	.img_carsimg{
+		max-width: 200px;
+		max-height: 200px;
+	}
+</style>
+
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to Home</a>
+			<hr>
+			<h3 style="text-align: center">Account Settings</h3>
+			<hr>
+			<img class="profile-pic" src="/media/{{ person.profile_pic }}" >
+		
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+					<div class="form-group row">
+					  <label for="name1" class="col-sm-2 col-form-label">Name</label>
+					  <div class="col-sm-10">
+						<input type="text" class="form-control" id="name1" placeholder="{{person.name}} ">
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="email2" class="col-sm-2 col-form-label">Email Address</label>
+					  <div class="col-sm-10">
+						<input type="email" class="form-control" id="email2" placeholder="{{person.email}}">
+					  </div>
+					</div>
+					<div class="form-group row">
+						<label for="phoneno" class="col-sm-2 col-form-label">Phone Number</label>
+						<div class="col-sm-10">
+						  <input type="number" class="form-control" id="phoneno" placeholder="{{person.mobno}}">
+						</div>
+					  </div>
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+					  <div class="form-group row">
+						<label for="profilepic1" class="col-sm-2 col-form-label">Profile Picture</label>
+						<div class="col-sm-10">
+						  <input type="file" class="form-control" name="profilepic" id="profilepic1" >
+						</div>
+					  </div>
+		
+			<input class="btn btn-primary" type="submit" name="Update Information">
+			</form>
+		</div>
+	</div>
+</div>
+{% if grpusr == "Seller"%}
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-orders" style="background-color: #4cb4c7;"> 
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Car sell</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered" style="background-color: #7abecc;">
+			  	<div class="card-header">
+			  		<h5 class="card-title">selled Car</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{selled}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-pending" style="background-color: #7CD1C0;">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Message</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{mes}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Car Brand</th>
+					<th>Car Model</th>
+					<th>Category</th>
+
+					<th>Car Image</th>
+
+				</tr>
+
+
+				{% for car in cars %}
+				<tr>
+					<td>{{car.CarBrand}}</td>
+					<td>{{car.Model}}</td>
+					<td>{{car.category}}</td>
+					<td><img class="img_carsimg" src="/media/{{ car.image }}" ></td>
+
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% if grpusr == "Buyer" %}
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Car Owner Id </th>
+					<th>Car Brand</th>
+					<th>Car Model</th>
+					<th>Category</th>
+					<th>Car Image</th>
+
+				</tr>
+
+
+				{% for messa in carvisit %}
+				<tr>
+					<th>{{messa.sellerid_id}}</th>
+					<td>{{messa.CarBrand}}</td>
+					<td>{{messa.Model}}</td>
+					<td>{{messa.category}}</td>
+					<td><img class="img_carsimg" src="/media/{{ messa.image }}" ></td>
+
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+
+{% endblock %}

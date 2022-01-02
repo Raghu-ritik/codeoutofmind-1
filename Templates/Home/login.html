@@ -1,0 +1,23 @@
+{% extends 'Home/navbar.html' %}
+{% block title %}  NB projects - For Everyone {% endblock %} 
+{% block cssd %} 
+{% load static %}
+{% static 'login.css' %} {% endblock %}
+{% block body %}
+<div class="cont">
+<div class="login-box">
+    <h1 class="logintxt">Login</h1>
+    <div class="textbox">
+      <i class="fas fa-user"></i>
+      <input class="inpt" type="text" placeholder="Username">
+    </div>
+  
+    <div class="textbox">
+      <i class="fas fa-lock"></i>
+      <input class="inpt" type="password" placeholder="Password">
+    </div>
+  
+    <input type="button" class="btnsi" value="Sign in">
+  </div>
+</div>
+{% endblock %}
